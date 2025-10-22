@@ -1,0 +1,13 @@
+# Python virtual environments
+/ncf_env/
+/recommender_env/
+
+# Data and notebooks
+/data/
+/notebooks/
+
+# Environment files
+.env.example
+
+# Python cache
+/__pycache__/
