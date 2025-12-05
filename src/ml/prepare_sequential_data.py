@@ -54,7 +54,7 @@ def create_sequences():
     y = np.array(targets)
     print(X)
     print(y)
-
+    """
     data_to_save = {
         'X': X,
         'y': y,
@@ -67,5 +67,7 @@ def create_sequences():
         pickle.dump(data_to_save, f)
         
     print(f"Data prepared and saved to 'data/sequential_data.pkl'. Shape of X: {X.shape}")
+    """
+    
 if __name__ == "__main__":
     create_sequences()

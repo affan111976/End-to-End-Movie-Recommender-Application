@@ -5,6 +5,8 @@ from sqlalchemy import and_, or_
 from .models import User, Feedback
 from .database import get_db_session
 import logging
+import bcrypt
+from passlib.context import CryptContext
 
 logger = logging.getLogger(__name__)
 
@@ -14,11 +16,11 @@ class UserManager:
 
     @staticmethod
     def hash_password(password: str) -> str:
-        return hashlib.sha256(password.encode()).hexdigest()
+        return pwd_context.hash(password)
 
     @staticmethod
     def verify_password(password: str, hashed_password: str) -> bool:
-        return hashlib.sha256(password.encode()).hexdigest() == hashed_password
+        return pwd_context.verify(password, hashed_password)
 
     def _user_to_dict(self, user: User) -> Optional[Dict[str, Any]]:
         if not user:
